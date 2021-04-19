@@ -1,10 +1,39 @@
 pipeline {
-    agent { docker { image 'python:3.5.1' } }
+    agent any
     stages {
-        stage('build') {
+        stage('Compile') {
             steps {
-                sh 'python --version'
+                echo "Compiled Success";
+            }
+        }
+        stage('Unit') {
+            steps {
+                echo "UNit Success";
+            }
+        }
+        stage('Quality') {
+            steps {
+                echo "Quality Success";
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo "Quality Success";
             }
         }
     }
-}
+    post{
+        always{
+            echo 'This is alwaya run'
+        }
+        success {
+            echo 'Tsuccess'
+        }
+        failure {
+            echo 'sfcs'
+        }
+       
+    }
+        
+      
+       }   
